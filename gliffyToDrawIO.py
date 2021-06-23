@@ -1,4 +1,10 @@
+#!/usr/bin/env python3
+
 import json
+import string
+import random
+import argparse
+
 from bs4 import BeautifulSoup
 
 draw_obj_keys = {'x': 1, 'y': 1, 
@@ -11,10 +17,15 @@ draw_obj_keys = {'x': 1, 'y': 1,
     'layerId': 1, 'flipHorizontal': 1, 
     'flipVertical': 1, 'children': 1}
 
+# From stackoverflow with mods
+def id_generator(size=20, chars=string.ascii_uppercase + string.digits + string.ascii_lowercase):
+    return ''.join(random.choice(chars) for _ in range(size))
+
 class Gliffy(object):
     def __init__(self, filename):
         self.draw_objs = []
         self.obj_keys = {}
+        self.draw_io_id = id_generator()
         with open(filename, "r") as ifh:
             self.gobj = json.load(ifh)
             self.stage = self.gobj['stage']
@@ -165,15 +176,16 @@ class GliffyObj(object):
             width = self.width
             height = self.height
 
-            self.placement = {f"WpHb4AEowC1BbJerPiXC-{number}": [x,y,width,height]}
+            self.placement = {f"{self.draw_io_id}-{number}": [x,y,width,height]}
 
-            mxCell_open = f'<mxCell id="WpHb4AEowC1BbJerPiXC-{number}" value="{text}" style="{style}" vertex="1" parent="1">'
+            mxCell_open = f'<mxCell id="{self.draw_io_id}-{number}" value="{text}" style="{style}" vertex="1" parent="1">'
             mxGeometry = f'\t<mxGeometry x="{x}" y="{y}" width="{width}" height="{height}" as="geometry" />'
             mxCell_close = '</mxCell>'
             output = [mxCell_open, mxGeometry, mxCell_close]
         return output
 
     def emit_drawio_lines(self, number):
+        """Not Complete or even Called"""
         output = []
         self.placement = None
         if self.type == 'Line':
@@ -192,9 +204,9 @@ class GliffyObj(object):
             width = self.width
             height = self.height
 
-            self.placement = {f"WpHb4AEowC1BbJerPiXC-{number}": [x,y,width,height]}
+            self.placement = {f"{self.draw_io_id}-{number}": [x,y,width,height]}
 
-            mxCell_open = f'<mxCell id="WpHb4AEowC1BbJerPiXC-{number}" value="{text}" style="{style}" vertex="1" parent="1">'
+            mxCell_open = f'<mxCell id="{self.draw_io_id}-{number}" value="{text}" style="{style}" vertex="1" parent="1">'
             mxGeometry = f'\t<mxGeometry x="{x}" y="{y}" width="{width}" height="{height}" as="geometry" />'
             mxCell_close = '</mxCell>'
             output = [mxCell_open, mxGeometry, mxCell_close]
@@ -233,15 +245,27 @@ class GliffyObj(object):
         else: 
             print("WARNING: FOUND SOMETHING UNEXPECTED")
 
-
-
     def give_me_keys(self):
         key_list = list(self.obj.keys())
         # {key: value for (key, value) in iterable}
         key_dict = {key: 1 for key in key_list}
         return(key_dict)
 
-glif = Gliffy("gliffy.gliffy")
 
-with open("drawio_output.xml", "w") as ofh:
-    ofh.write(glif.emit_drawio())
+if __name__ == "__main__":
+        # Parse the CLI
+    parser = argparse.ArgumentParser(description='Convert (partially) Gliffy drawings to Draw.io/Diagram.net drawings ')
+    parser.add_argument('gliffy_drawing',
+                        help='Name of the gliffy to convert')
+    parser.add_argument('drawio_drawing_xml',
+                        help='Name of the output drawio aware xml document. Example: "ThanksGliffy.xml"')
+    args = parser.parse_args()
+
+    print("Attempting to convert:")
+    print("\tGliffy File", args.gliffy_drawing)
+    print("\tDraw.io XML File", args.drawio_drawing_xml)
+
+    glif = Gliffy(args.gliffy_drawing)
+
+    with open(args.drawio_drawing_xml, "w") as ofh:
+        ofh.write(glif.emit_drawio())
