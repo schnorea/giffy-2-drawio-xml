@@ -5,29 +5,74 @@
 <root>
 <mxCell id="0" />
 <mxCell id="1" parent="0" />
-<mxCell id="JUlcsZkMuTU1L1lIsNue-10" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+<mxCell id="oKGpW8al4G11rfym62fV-1" value="SWOT Analysis - Company A" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#000066;" vertex="1" parent="1">
+	<mxGeometry x="68.0" y="13.75" width="657.0" height="41.0" as="geometry" />
+</mxCell>
+<mxCell id="oKGpW8al4G11rfym62fV-2" value="External" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#000066;" vertex="1" parent="1">
+	<mxGeometry x="7.5" y="489.5" width="150.0" height="27.0" as="geometry" />
+</mxCell>
+<mxCell id="oKGpW8al4G11rfym62fV-3" value="Internal" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#000066;" vertex="1" parent="1">
+	<mxGeometry x="8.5" y="194.5" width="150.0" height="27.0" as="geometry" />
+</mxCell>
+<mxCell id="oKGpW8al4G11rfym62fV-4" value="• Engineering team• Location• Hardware design• First mover advantage• History of technological excellence " style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#000066;" vertex="1" parent="1">
+	<mxGeometry x="139.0" y="205.0" width="247.0" height="96.0" as="geometry" />
+</mxCell>
+<mxCell id="oKGpW8al4G11rfym62fV-5" value="Weaknesses" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#000066;" vertex="1" parent="1">
+	<mxGeometry x="435.5" y="167.5" width="224.0" height="27.0" as="geometry" />
+</mxCell>
+<mxCell id="oKGpW8al4G11rfym62fV-6" value="Strengths" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#000066;" vertex="1" parent="1">
+	<mxGeometry x="139.0" y="167.5" width="174.0" height="27.0" as="geometry" />
+</mxCell>
+<mxCell id="oKGpW8al4G11rfym62fV-7" value="• Hierarchical corporate structure• Lack of recent innovation• Software design &amp; usability " style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#000066;" vertex="1" parent="1">
+	<mxGeometry x="435.5" y="207.0" width="236.0" height="64.0" as="geometry" />
+</mxCell>
+<mxCell id="oKGpW8al4G11rfym62fV-8" value="Threats" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#000066;" vertex="1" parent="1">
+	<mxGeometry x="435.5" y="460.5" width="161.0" height="27.0" as="geometry" />
+</mxCell>
+<mxCell id="oKGpW8al4G11rfym62fV-9" value="Opportunities" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#000066;" vertex="1" parent="1">
+	<mxGeometry x="139.0" y="460.5" width="252.0" height="27.0" as="geometry" />
+</mxCell>
+<mxCell id="oKGpW8al4G11rfym62fV-10" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
 	<mxGeometry x="120.5" y="80.5" width="275.0" height="275.0" as="geometry" />
 </mxCell>
-<mxCell id="JUlcsZkMuTU1L1lIsNue-11" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+<mxCell id="oKGpW8al4G11rfym62fV-11" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
 	<mxGeometry x="120.5" y="373.5" width="275.0" height="275.0" as="geometry" />
 </mxCell>
-<mxCell id="JUlcsZkMuTU1L1lIsNue-12" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+<mxCell id="oKGpW8al4G11rfym62fV-12" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
 	<mxGeometry x="411.5" y="375.5" width="275.0" height="275.0" as="geometry" />
 </mxCell>
-<mxCell id="JUlcsZkMuTU1L1lIsNue-13" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+<mxCell id="oKGpW8al4G11rfym62fV-13" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
 	<mxGeometry x="411.5" y="80.5" width="275.0" height="275.0" as="geometry" />
 </mxCell>
-<mxCell id="JUlcsZkMuTU1L1lIsNue-14" value="Internal" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+<mxCell id="oKGpW8al4G11rfym62fV-14" value="Internal" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
 	<mxGeometry x="-45.50769228240546" y="198.50000986188422" width="275.0" height="40.0" as="geometry" />
 </mxCell>
-<mxCell id="JUlcsZkMuTU1L1lIsNue-15" value="External" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+<mxCell id="oKGpW8al4G11rfym62fV-15" value="External" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
 	<mxGeometry x="-47.147502802313454" y="492.5000098618842" width="275.0" height="40.0" as="geometry" />
 </mxCell>
-<mxCell id="JUlcsZkMuTU1L1lIsNue-16" value="Negative" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+<mxCell id="oKGpW8al4G11rfym62fV-16" value="Negative" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
 	<mxGeometry x="409.8346400548295" y="659.0" width="275.0" height="40.0" as="geometry" />
 </mxCell>
-<mxCell id="JUlcsZkMuTU1L1lIsNue-17" value="Positive" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+<mxCell id="oKGpW8al4G11rfym62fV-17" value="Positive" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
 	<mxGeometry x="120.5" y="659.0" width="275.0" height="40.0" as="geometry" />
+</mxCell>
+<mxCell id="oKGpW8al4G11rfym62fV-18" value="S" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#000066;" vertex="1" parent="1">
+	<mxGeometry x="306.3703543405438" y="90.93910675525274" width="89.5" height="48.0" as="geometry" />
+</mxCell>
+<mxCell id="oKGpW8al4G11rfym62fV-19" value="W" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#000066;" vertex="1" parent="1">
+	<mxGeometry x="597.3703543405438" y="90.93910675525274" width="89.5" height="48.0" as="geometry" />
+</mxCell>
+<mxCell id="oKGpW8al4G11rfym62fV-20" value="O" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#000066;" vertex="1" parent="1">
+	<mxGeometry x="304.3703543405438" y="387.5" width="89.5" height="48.0" as="geometry" />
+</mxCell>
+<mxCell id="oKGpW8al4G11rfym62fV-21" value="T" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#000066;" vertex="1" parent="1">
+	<mxGeometry x="596.5" y="387.5" width="89.5" height="48.0" as="geometry" />
+</mxCell>
+<mxCell id="oKGpW8al4G11rfym62fV-22" value="• Low cost competitors• Smaller agile companies • Lower prices / profit margins " style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#000066;" vertex="1" parent="1">
+	<mxGeometry x="435.5" y="500.0" width="224.0" height="48.0" as="geometry" />
+</mxCell>
+<mxCell id="oKGpW8al4G11rfym62fV-23" value="• Emerging economies, new consumers• Smart appliances• &quot;Internet of Things&quot;• Gaming + Interactive Entertainment" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#000066;" vertex="1" parent="1">
+	<mxGeometry x="138.0" y="500.0" width="256.5" height="64.0" as="geometry" />
 </mxCell>
 </root>
 </mxGraphModel>

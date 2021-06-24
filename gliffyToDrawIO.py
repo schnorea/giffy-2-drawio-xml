@@ -47,10 +47,12 @@ class Gliffy(object):
         text_array.append('<mxCell id="0" />')
         text_array.append('<mxCell id="1" parent="0" />')
         placement = []
+        shape_count = 1
         for i, draw_obj in enumerate(self.draw_objs):
             #print(i)
             #print(draw_obj.emit_drawio(i+1))
-            text_array.extend(draw_obj.emit_drawio_shapes(i+1))
+            emitted_drawing_elem, shape_count = draw_obj.emit_drawio_elem(shape_count)
+            text_array.extend( emitted_drawing_elem )
             if draw_obj.placement is not None:
                 placement.append(draw_obj.placement)
     
@@ -100,10 +102,11 @@ class Gliffy(object):
 
 
 class GliffyObj(object):
-    def __init__(self, raw_draw_obj, draw_io_id):
+    def __init__(self, raw_draw_obj, draw_io_id, is_child=False):
         self.obj = raw_draw_obj
         self.my_children = []
         self.draw_io_id = draw_io_id
+        self.is_child = is_child
         self._populate()
 
 
@@ -159,10 +162,12 @@ class GliffyObj(object):
 
         return text
 
+
     def emit_drawio_shapes(self, number):
         output = []
         self.placement = None
         if self.type == 'Shape':
+            self.my_shape_count = number
             # <mxCell id="WpHb4AEowC1BbJerPiXC-2" value="Text for the&amp;nbsp;&lt;br&gt;ages" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
             #   <mxGeometry x="200" y="420" width="120" height="60" as="geometry" />
             # </mxCell>
@@ -184,13 +189,15 @@ class GliffyObj(object):
             mxGeometry = f'\t<mxGeometry x="{x}" y="{y}" width="{width}" height="{height}" as="geometry" />'
             mxCell_close = '</mxCell>'
             output = [mxCell_open, mxGeometry, mxCell_close]
-        return output
+            number += 1
+        return output, number
 
     def emit_drawio_lines(self, number):
         """Not Complete or even Called"""
         output = []
         self.placement = None
         if self.type == 'Line':
+            self.my_shape_count = number
             # <mxCell id="WpHb4AEowC1BbJerPiXC-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="WpHb4AEowC1BbJerPiXC-3" target="WpHb4AEowC1BbJerPiXC-2">
             # <mxGeometry relative="1" as="geometry" />
             # </mxCell>
@@ -212,7 +219,43 @@ class GliffyObj(object):
             mxGeometry = f'\t<mxGeometry x="{x}" y="{y}" width="{width}" height="{height}" as="geometry" />'
             mxCell_close = '</mxCell>'
             output = [mxCell_open, mxGeometry, mxCell_close]
-        return output
+            number += 1
+        return output, number
+
+    def emit_drawio_text(self, number):
+        output = []
+        self.placement = None
+        if self.type == 'Text' and not self.is_child:
+            self.my_shape_count = number
+            # <mxCell id="MH50X9NqIrNpNXkGlf9i-19" value="Text" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#000066;" vertex="1" parent="1">
+            #   <mxGeometry x="530" y="440" width="40" height="20" as="geometry" />
+            # </mxCell>
+
+            # TODO pull style from text of gliffy
+            style = "text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#000066;"
+            text = self._get_text()
+            x = self.x
+            y = self.y
+            width = self.width
+            height = self.height
+
+            self.placement = {f"{self.draw_io_id}-{number}": [x,y,width,height]}
+
+            mxCell_open = f'<mxCell id="{self.draw_io_id}-{number}" value="{text}" style="{style}" vertex="1" parent="1">'
+            mxGeometry = f'\t<mxGeometry x="{x}" y="{y}" width="{width}" height="{height}" as="geometry" />'
+            mxCell_close = '</mxCell>'
+            output = [mxCell_open, mxGeometry, mxCell_close]
+            number += 1
+        return output, number
+
+    def emit_drawio_elem(self, shape_count):
+        output = []
+        if self.type == 'Shape':
+            output, shape_count = self.emit_drawio_shapes(shape_count)
+        elif self.type == 'Text':
+            output, shape_count = self.emit_drawio_text(shape_count)
+        return output, shape_count
+
 
 
     def _get_graphic(self):
@@ -231,7 +274,7 @@ class GliffyObj(object):
             if self.children is not None:
                 #print(self.children)
                 for child in self.children:
-                    self.my_children.append(GliffyObj(child, self.draw_io_id))
+                    self.my_children.append(GliffyObj(child, self.draw_io_id, True))
             #print()
             
         elif self.type == 'Line':
