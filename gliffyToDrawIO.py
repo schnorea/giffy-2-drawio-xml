@@ -32,7 +32,7 @@ class Gliffy(object):
             self.raw_draw_objs = self.stage['objects']
             # print(self.raw_draw_objs)
             for raw_draw_obj in self.raw_draw_objs:
-                dobj = GliffyObj(raw_draw_obj)
+                dobj = GliffyObj(raw_draw_obj, self.draw_io_id)
                 #print(dobj)
                 self.draw_objs.append(dobj)
 
@@ -100,10 +100,12 @@ class Gliffy(object):
 
 
 class GliffyObj(object):
-    def __init__(self, raw_draw_obj):
+    def __init__(self, raw_draw_obj, draw_io_id):
         self.obj = raw_draw_obj
         self.my_children = []
+        self.draw_io_id = draw_io_id
         self._populate()
+
 
     def _populate(self):
         self.x = self.obj.get('x', None)
@@ -229,7 +231,7 @@ class GliffyObj(object):
             if self.children is not None:
                 #print(self.children)
                 for child in self.children:
-                    self.my_children.append(GliffyObj(child))
+                    self.my_children.append(GliffyObj(child, self.draw_io_id))
             #print()
             
         elif self.type == 'Line':
