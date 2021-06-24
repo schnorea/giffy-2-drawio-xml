@@ -269,6 +269,12 @@ class GliffyObj(object):
         if self.type == 'Shape':
             self.shape = self.graphic['Shape']
             self.tid = self.shape['tid']
+
+            # TODO: This may be problematic for a number of reasons keep and eye on this
+            self.__dict__.update({k: v for k, v in self.shape.items()})
+            print(self.fillColor)
+            print(self.strokeColor)
+            
             #print(list(self.shape.keys()))
             #print(self.tid)
             if self.children is not None:
